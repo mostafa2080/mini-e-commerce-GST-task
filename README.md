@@ -1,6 +1,6 @@
 # Mini E-Commerce Project
 
-This is a small e-commerce project built using the Laravel framework. It allows you to create and manage an e-commerce website. Here are the steps to get started:
+This is a small e-commerce project built using the Laravel framework. As a Part of Hiring process for GST Group 
 
 ## Prerequisites
 
