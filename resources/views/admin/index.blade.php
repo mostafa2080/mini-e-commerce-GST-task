@@ -4,13 +4,21 @@
         $id = Auth::user()->id;
         $userid = App\Models\User::find($id);
         $status = $userid->status;
+
+        $productCount = App\Models\Product::count();
+        $categoryCount = App\Models\Category::count();
+        $activeUsersCount = App\Models\User::where('status', 'active')->count();
+        $inactiveUsersCount = App\Models\User::where('status', 'inactive')->count();
+        $bannerCount = App\Models\Banner::count();
     @endphp
+
+
 
     <div class="content">
         @if ($status == 'active')
-            <h4>Admin Account Is <span class="text-success">Active </span> </h4>
+            <h4>Your Account Is <span class="text-success">Active </span> </h4>
         @else
-            <h4>Admin Account Is <span class="text-danger">InActive </span> </h4>
+            <h4>Your Account Is <span class="text-danger">InActive </span> </h4>
             <p class="text-danger"><b>Plz wait admin will check and approve your account</b></p>
         @endif
         <!-- Start Content-->
@@ -48,14 +56,15 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-6">
-                                    <div class="avatar-lg rounded-circle bg-primary border-primary border shadow">
-                                        <i class="fe-heart font-22 avatar-title text-white"></i>
+                                    <div class="avatar-lg rounded-circle bg-soft-success border-success border">
+                                        <i class="fe-shopping-bag font-22 avatar-title text-success"></i>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="text-end">
-                                        <h3 class="text-dark mt-1">$<span data-plugin="counterup">58,94</span></h3>
-                                        <p class="text-muted mb-1 text-truncate">Total Revenue</p>
+                                        <h3 class="text-dark mt-1"><span data-plugin="counterup">{{ $productCount }}</span>
+                                        </h3>
+                                        <p class="text-muted mb-1 text-truncate">Product Available</p>
                                     </div>
                                 </div>
                             </div> <!-- end row-->
@@ -68,14 +77,16 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-6">
-                                    <div class="avatar-lg rounded-circle bg-success border-success border shadow">
-                                        <i class="fe-shopping-cart font-22 avatar-title text-white"></i>
+                                    <div class="avatar-lg rounded-circle bg-soft-blue border-blue border">
+                                        <i class="fe-users font-22 avatar-title text-blue"></i>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="text-end">
-                                        <h3 class="text-dark mt-1"><span data-plugin="counterup">127</span></h3>
-                                        <p class="text-muted mb-1 text-truncate">Today's Sales</p>
+                                        <h3 class="text-dark mt-1"><span
+                                                data-plugin="counterup">{{ $activeUsersCount }}</span>
+                                        </h3>
+                                        <p class="text-muted mb-1 text-truncate">Active Users</p>
                                     </div>
                                 </div>
                             </div> <!-- end row-->
@@ -88,14 +99,15 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-6">
-                                    <div class="avatar-lg rounded-circle bg-info border-info border shadow">
-                                        <i class="fe-bar-chart-line- font-22 avatar-title text-white"></i>
+                                    <div class="avatar-lg rounded-circle bg-soft-pink border-pink border">
+                                        <i class="fe-users font-22 avatar-title text-pink"></i>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="text-end">
-                                        <h3 class="text-dark mt-1"><span data-plugin="counterup">0.58</span>%</h3>
-                                        <p class="text-muted mb-1 text-truncate">Conversion</p>
+                                        <h3 class="text-dark mt-1"><span
+                                                data-plugin="counterup">{{ $inactiveUsersCount }}</span></h3>
+                                        <p class="text-muted mb-1 text-truncate">Inactive Users</p>
                                     </div>
                                 </div>
                             </div> <!-- end row-->
@@ -114,8 +126,9 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="text-end">
-                                        <h3 class="text-dark mt-1"><span data-plugin="counterup">78.41</span>k</h3>
-                                        <p class="text-muted mb-1 text-truncate">Today's Visits</p>
+                                        <h3 class="text-dark mt-1"><span data-plugin="counterup">{{ $categoryCount }}</span>
+                                        </h3>
+                                        <p class="text-muted mb-1 text-truncate">Categories Available</p>
                                     </div>
                                 </div>
                             </div> <!-- end row-->
