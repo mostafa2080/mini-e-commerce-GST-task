@@ -1,6 +1,6 @@
 # Mini E-Commerce Project
 
-This is a small e-commerce project built using the Laravel framework. As a Part of Hiring process for GST Group 
+This is a small e-commerce project built using the Laravel framework. as a part of Hiring process for GST group 
 
 ## Prerequisites
 
