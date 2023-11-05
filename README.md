@@ -19,8 +19,8 @@ Before you begin, make sure you have the following prerequisites installed on yo
 3. Create a `.env` file by copying the `.env.example` file and configuring your database connection in the `.env` file.
 
 4. Run the following commands to set up the project:
-composer install
-php artisan migrate:fresh --seed
+    -composer install
+    -php artisan migrate:fresh --seed
 
 
 ## API Documentation
